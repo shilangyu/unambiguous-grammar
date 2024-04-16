@@ -1,0 +1,53 @@
+name: cd
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Compile abstract
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: docs/abstract
+          root_file: main.tex
+      
+      - name: Compile presentation
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: docs/presentation
+          root_file: main.tex
+
+      - name: Create output directory
+        run: |
+          mkdir _build
+          mv docs/abstract/main.pdf _build/abstract.pdf
+          mv docs/presentation/main.pdf _build/presentation.pdf
+          echo '<ul><li><a href="./abstract.pdf">abstract</a></li><li><a href="./presentation.pdf">presentation</a></li></ul>' > _build/index.html
+
+      - name: Upload Artifacts
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: '_build/'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    permissions:
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
