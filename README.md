@@ -1,6 +1,6 @@
 # Unambiguous grammar
 
-Definition and proofs of a grammar that produces at most a single parse tree for any input (ie. is unambiguous).
+Formal specification of a language of grammars and proofs about their ambiguity.
 
 ## Building
 
@@ -10,4 +10,4 @@ TODO: add instructions how to output OCaml code of the parser.
 
 ## Documentation
 
-Can be found in `docs/`. Rendered documents are [here](TODO: link to gh pages).
+Can be found in `docs/`. Rendered documents are [here](https://github.shilangyu.dev/unambiguous-grammar/).
