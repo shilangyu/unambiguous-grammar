@@ -1,0 +1,31 @@
+opam-version: "2.0"
+maintainer: "shilangyu"
+version: "dev"
+
+homepage: "https://github.com/shilangyu/unambiguous-grammar"
+dev-repo: "git+https://github.com/shilangyu/unambiguous-grammar.git"
+bug-reports: "https://github.com/shilangyu/unambiguous-grammar/issues"
+doc: "https://github.shilangyu.dev/unambiguous-grammar/"
+license: "MIT"
+
+synopsis: "Formal specification of a language of grammars and proofs about their ambiguity"
+description: """
+Formal specification of a language of grammars and proofs about their ambiguity.
+"""
+
+build: [
+  ["sh" "-c" "coq_makefile -f _CoqProject -o Makefile"]
+  [make "-j%{jobs}%"]
+]
+install: [make "install"]
+
+depends: [
+	"ocaml" {>= "5.1.0"}
+  "coq" {>= "8.18"}
+]
+
+tags: [
+]
+authors: [
+	"Marcin Wojnarowski"
+]

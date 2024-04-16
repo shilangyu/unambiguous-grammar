@@ -4,7 +4,11 @@ Formal specification of a language of grammars and proofs about their ambiguity.
 
 ## Building
 
-Project requires Coq 8.18.0. Build with `./configure.sh && make`.
+Project needs OCaml tooling, more concretely `opam`.
+
+```sh
+opam install . # install dependencies and build (check proofs)
+```
 
 TODO: add instructions how to output OCaml code of the parser.
 

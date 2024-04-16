@@ -18,9 +18,6 @@ jobs:
         with:
           coq_version: '8.18'
       
-      - name: Check proofs
-        run: ./configure.sh && make
-
       - name: Compile abstract
         uses: xu-cheng/latex-action@v3
         with:
