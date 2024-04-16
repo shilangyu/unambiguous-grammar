@@ -13,10 +13,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install Coq
+      - name: Check proofs
         uses: coq-community/docker-coq-action@v1
         with:
           coq_version: '8.18'
+          before_install: |
+            startGroup "Workaround permission issue"
+              sudo chown -R coq:coq .
+            endGroup
+            startGroup "Print opam config"
+              opam config list; opam repo list; opam list
+            endGroup
       
       - name: Compile abstract
         uses: xu-cheng/latex-action@v3
@@ -29,3 +36,7 @@ jobs:
         with:
           working_directory: docs/presentation
           root_file: main.tex
+
+      - name: Revert permissions
+        if: ${{ always() }}
+        run: sudo chown -R 1001:116 .
