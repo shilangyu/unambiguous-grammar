@@ -1,0 +1,96 @@
+\documentclass{EESD}
+% To change the slides size go to EESD.cls file and edit the preamble as explained.
+
+% Important packages to be called
+\usepackage{subcaption} % for adding sub-figures
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage{tikz} % for cool graphics and drawings
+\usepackage{listings}
+\usepackage{syntax}
+\usepackage[absolute,overlay]{textpos} % To place the figures by coordinates (x,y) - Beamer doesn't support floats XD
+\usepackage{multicol} % To adjust items and stuff automatically in a number of a pre-specified columns
+\graphicspath{{assets/}}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{hyperref}
+% fonts packages
+\usepackage{ragged2e} % Justified typesetting
+
+\setbeameroption{hide notes} % Only slides
+% \setbeameroption{show only notes} % Only notes
+% \setbeameroption{show notes on second screen=right} % Both
+
+% For adding code blocks
+\definecolor{ltblue}{rgb}{0,0.4,0.4}
+\definecolor{dkblue}{rgb}{0,0.1,0.6}
+\definecolor{dkgreen}{rgb}{0,0.35,0}
+\definecolor{dkviolet}{rgb}{0.3,0,0.5}
+\definecolor{dkred}{rgb}{0.5,0,0}
+\def\lstlanguagefiles{lstcoq.tex}
+
+\author{Marcin Wojnarowski}
+\title[Unambiguity of grammars]{Unambiguity of grammars}
+
+\institute[SYSTEMF]{{\'Ecole Polytechnique F\'ed\'erale de Lausanne (EPFL)}{\newline\newline CS628 - Interactive Theorem Proving}}
+\subject{Course project}
+\date{May 2024} % TODO: make sure this is correct
+
+\begin{document}
+{
+\usebackgroundtemplate{}
+\coverpage{
+    \titlepage{~}
+    % To add additional text to the title components
+}
+}
+
+\setbeamertemplate{logo}{} % To override the logo from the other slides and delete it completely
+
+
+% -----------------------Table of contents TOC Three Styles
+% Explicitly split the TOC if it's too long
+% \begin{frame}[allowframebreaks]{Outlines}
+% \tableofcontents[sections={1-3}] % Explicitly split TOC
+% \framebreak
+% \tableofcontents[sections={4-7}] % Explicitly split TOC
+% \end{frame}
+
+% % Just a normal TOC 
+% \begin{frame}[allowframebreaks]{Outlines}
+% \tableofcontents
+% \end{frame}
+
+% Use smart division for the TOC
+\begin{frame}{Outline}
+    \begin{multicols}{2}
+        \tableofcontents
+    \end{multicols}
+\end{frame}
+
+
+\setbeamertemplate{logo}{}
+
+% -----------------------Conclusions
+\section{Conclusions}
+
+\breakingframe{Conclusions}
+
+\begin{frame}{Discussion}
+    \begin{itemize}
+        \item TODO
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Future work}
+    \begin{itemize}
+        \item TODO
+    \end{itemize}
+\end{frame}
+
+\breakingframe{Merci!}
+
+
+\end{document}
