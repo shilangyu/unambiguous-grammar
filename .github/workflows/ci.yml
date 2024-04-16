@@ -1,0 +1,34 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Coq
+        uses: coq-community/docker-coq-action@v1
+        with:
+          coq_version: '8.18'
+      
+      - name: Check proofs
+        run: ./configure.sh && make
+
+      - name: Compile abstract
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: docs/abstract
+          root_file: main.tex
+      
+      - name: Compile presentation
+        uses: xu-cheng/latex-action@v3
+        with:
+          working_directory: docs/presentation
+          root_file: main.tex
