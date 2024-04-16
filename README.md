@@ -4,7 +4,7 @@ Definition and proofs of a grammar that produces at most a single parse tree for
 
 ## Building
 
-Project requires Coq 8.18.0. Build with `make`.
+Project requires Coq 8.18.0. Build with `./configure.sh && make`.
 
 TODO: add instructions how to output OCaml code of the parser.
 
