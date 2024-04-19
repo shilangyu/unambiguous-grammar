@@ -1,5 +1,8 @@
 # Unambiguous grammar
 
+> [~IMPORTANT]
+> Project put on hold until further notice.
+
 Formal specification of a language of grammars and proofs about their ambiguity.
 
 ## Building
